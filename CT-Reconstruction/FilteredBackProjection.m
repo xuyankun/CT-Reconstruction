@@ -26,7 +26,7 @@ else
     
 end
 
-ramlak = gx;
+ramlak = gx';
 
 % choose method to use different filter
 switch method 
@@ -35,7 +35,7 @@ switch method
         H = ramlak;
     case 1
         h = hamming(size(sinogram,1));
-        H = [h(hfgl:gl); h(1:hfgl-1)] .* ramlak';
+        H = [h(hfgl:gl); h(1:hfgl-1)] .* ramlak;
     otherwise
         fprintf('Error! Input value should be 0 or 1.')
 end
@@ -44,7 +44,7 @@ end
 % change g(l,theta) to G(w,theta), w is spital frequency
 gf = fft(sinogram);
 % multiply by filter
-gff = bsxfun(@times, gf, H');
+gff = bsxfun(@times, gf, H);
 % take inverse fourier transform to get filtered g(l,theta) data
 igff = real(ifft(gff));
 

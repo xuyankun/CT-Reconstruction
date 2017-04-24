@@ -17,7 +17,7 @@ else
     
 end
 
-ramlak = gx;
+ramlak = gx';
 
 switch method 
 
@@ -25,7 +25,7 @@ switch method
         H = ramlak;
     case 1
         ham = hamming(size(sinogram,1));
-        H = [ham(hfgl:gl); ham(1:hfgl-1)] .* ramlak';
+        H = [ham(hfgl:gl); ham(1:hfgl-1)] .* ramlak;
     otherwise
         fprintf('Error! Input value should be 0 or 1.')
 end
